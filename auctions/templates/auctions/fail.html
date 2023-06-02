@@ -1,6 +1,11 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2>BID HIGHER.</h2>
+    {% if t2 %}
+        <h2>BID HIGHER.</h2>
+    {% endif %}
+    {% if t %}
+        <h2>ALREADY IN WATCHLIST</h2>
+    {% endif %}
 
 {% endblock %}

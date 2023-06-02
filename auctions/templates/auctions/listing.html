@@ -1,0 +1,32 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2 style="text-align: center;">Add Listing</h2>
+
+    <form method="post" enctype="multipart/form-data" style="text-align: center;">
+        {% csrf_token %}
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div class="form-group" style="width: 300px;">
+                <label for="{{ form.category.id_for_label }}">Category:</label>
+                {{ form.category }}
+            </div>
+            <div class="form-group" style="width: 300px;">
+                <label for="{{ form.title.id_for_label }}">Title:</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group" style="width: 300px;">
+                <label for="{{ form.description.id_for_label }}">Description:</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group" style="width: 300px;">
+                <label for="{{ form.starting_bid.id_for_label }}">Starting Bid:</label>
+                {{ form.starting_bid }}
+            </div>
+            <div class="form-group" style="width: 300px;">
+                <label for="{{ form.image_url.id_for_label }}">Image URL:</label>
+                {{ form.image_url }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Listing</button>
+    </form>
+{% endblock %}

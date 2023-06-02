@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% for item in watchitems %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex;">
+            <div>
+                <img src="{{ item.il }}" alt="Listing Image" style="width: 250px; height: 250px;">
+            </div>
+            <div style="margin-left: 10px;">
+                <ul style="list-style-type: none; padding: 0;">
+                    <a href="{% url 'detail' item.prwd %}">
+                    <li><strong>{{ item.wt }}</strong></li></a>
+                </ul>
+                <form action="{% url 'watchlist' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="productid" value="{{ item.prwd}}">
+                    <button type="submit">Remove</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

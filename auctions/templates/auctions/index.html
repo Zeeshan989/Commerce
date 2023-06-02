@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    {% for list in lists %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex;">
+            <div>
+                <img src="{{ list.image_url }}" alt="Listing Image" style="width: 250px; height: 250px;">
+            </div>
+            <div style="margin-left: 10px;">
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="color: red;">{{ list.closed }}</li>
+                    <a href="{% url 'detail' list.id %}">
+                    <li><strong>{{ list.title }}</strong></li></a>
+                    <li><strong>Current Price: </strong>{{ list.starting_bid }}$</li>
+                    <li><strong>Listed By: </strong>{{ list.l_uid }}</li>
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+    <style>
+        .count-badge {
+            background-color: red;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+    </style>
+{% endblock %}

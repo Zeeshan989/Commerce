@@ -1,0 +1,83 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if f1 %}
+        {% for toy in toys %}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex;">
+                <div>
+                    <img src="{{ toy.image_url }}" alt="Listing Image" style="width: 250px; height: 250px;">
+                </div>
+                <div style="margin-left: 10px;">
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="color: red;">{{ toy.closed }}</li>
+                        <a href="{% url 'detail' toy.id %}">
+                        <li><strong>{{ toy.title }}</strong></li></a>
+                        <li><strong>Current Price: </strong>{{ toy.starting_bid }}$</li>
+                        <li><strong>Listed By: </strong>{{ toy.l_uid }}</li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+     {% if f2 %}
+        {% for electronic in electronics %}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex;">
+                <div>
+                    <img src="{{ electronic.image_url }}" alt="Listing Image" style="width: 250px; height: 250px;">
+                </div>
+                <div style="margin-left: 10px;">
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="color: red;">{{ electronic.closed }}</li>
+                        <a href="{% url 'detail' electronic.id %}">
+                        <li><strong>{{ electronic.title }}</strong></li></a>
+                        <li><strong>Current Price: </strong>{{ electronic.starting_bid }}$</li>
+                        <li><strong>Listed By: </strong>{{ electronic.l_uid }}</li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+        {% if f3 %}
+            {% for home in homes %}
+                <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex;">
+                    <div>
+                        <img src="{{ home.image_url }}" alt="Listing Image" style="width: 250px; height: 250px;">
+                    </div>
+                    <div style="margin-left: 10px;">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="color: red;">{{ home.closed }}</li>
+                            <a href="{% url 'detail' home.id %}">
+                            <li><strong>{{ home.title }}</strong></li></a>
+                            <li><strong>Current Price: </strong>{{ home.starting_bid }}$</li>
+                            <li><strong>Listed By: </strong>{{ home.l_uid }}</li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+    {% endif %}
+            {% if f4 %}
+                {% for fashion in fashions %}
+                    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex;">
+                        <div>
+                            <img src="{{ fashion.image_url }}" alt="Listing Image" style="width: 250px; height: 250px;">
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <ul style="list-style-type: none; padding: 0;">
+                                <li style="color: red;">{{ fashion.closed }}</li>
+                                <a href="{% url 'detail' fashion.id %}">
+                                <li><strong>{{ fashion.title }}</strong></li></a>
+                                <li><strong>Current Price: </strong>{{ fashion.starting_bid }}$</li>
+                                <li><strong>Listed By: </strong>{{ fashion.l_uid }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+
+
+
+
+
+
+
+{% endblock %}
